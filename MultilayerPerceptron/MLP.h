@@ -24,6 +24,10 @@ public:
 		heights = (int*)malloc(sizeof(int)*nl);
 		copy(h.begin(),h.end(),heights);
 	}
+	~MultilayerPerceptron() {
+		free(layers);
+		free(heights);
+	}
 	void initialize();		
 	void train(const vec & in, const vec & expected);
 	vec forward(const vec & in, vec* wi);

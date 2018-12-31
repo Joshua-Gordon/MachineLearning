@@ -137,6 +137,9 @@ void MultilayerPerceptron::train(const vec & in, const vec & expected) {
 		cout << layers[i].bias;
 		layers[i].bias -= learningRate*delta[i+1];
 	}
+	free(weightedInputs);
+	free(delta);
+	free(weightGradient);
 }
 
 vec MultilayerPerceptron::forward(const vec & in, vec* wi) {
